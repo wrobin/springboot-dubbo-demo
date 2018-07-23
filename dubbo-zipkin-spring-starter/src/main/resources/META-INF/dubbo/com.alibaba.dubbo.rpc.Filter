@@ -1,0 +1,2 @@
+spanConsumer=com.wrobin.zipkin.dubbo.ConsumerSpanFilter
+spanProvider=com.wrobin.zipkin.dubbo.ProviderSpanFilter

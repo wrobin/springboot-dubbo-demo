@@ -1,0 +1,23 @@
+package com.wrobin.parent.config.druid;
+
+import com.alibaba.druid.support.http.WebStatFilter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+
+import javax.servlet.annotation.WebFilter;
+import javax.servlet.annotation.WebInitParam;
+
+
+/***
+ * 配置监控拦截器
+ * druid监控拦截器
+ */
+@WebFilter(filterName="druidWebStatFilter",
+        urlPatterns="/*",
+        initParams={
+                @WebInitParam(name="exclusions",value="*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"),// 忽略资源
+        })
+@ConditionalOnProperty(name = "spring.datasource.type",
+        havingValue = "com.alibaba.druid.pool.DruidDataSource",
+        matchIfMissing = true)
+public class DruidStatFilter extends WebStatFilter {
+}
