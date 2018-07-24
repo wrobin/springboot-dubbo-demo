@@ -12,7 +12,6 @@
     <modules>
         <module>parent-api</module>
         <module>parent-provider</module>
-        <module>parent-consumer</module>
     </modules>
 
     <properties>
